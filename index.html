@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Operadores Aritméticos en JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧮 Aprende Operadores Aritméticos</h1>
+            <p>Practica las operaciones básicas de JavaScript</p>
+        </header>
+
+        <nav class="menu" id="mainMenu">
+            <h2>Selecciona un Ejercicio</h2>
+            <div class="exercise-grid">
+                <button class="exercise-btn" onclick="showExercise('exercise1')">
+                    <span class="exercise-number">1</span>
+                    <span class="exercise-title">Operaciones Básicas</span>
+                    <span class="exercise-description">Suma, resta, multiplicación y división</span>
+                </button>
+                <button class="exercise-btn" onclick="showExercise('exercise2')">
+                    <span class="exercise-number">2</span>
+                    <span class="exercise-title">Cálculo de Velocidad</span>
+                    <span class="exercise-description">Velocidad de un auto usando V = D / T</span>
+                </button>
+                <button class="exercise-btn" onclick="showExercise('exercise3')">
+                    <span class="exercise-number">3</span>
+                    <span class="exercise-title">Comisiones de Vendedor</span>
+                    <span class="exercise-description">Sueldo base + 10% de comisión por ventas</span>
+                </button>
+                <!-- Aquí se pueden agregar más ejercicios en el futuro -->
+            </div>
+        </nav>
+
+        <main class="exercise-container" id="exerciseContainer" style="display: none;">
+            <button class="back-btn" onclick="showMenu()">← Volver al Menú</button>
+            
+            <!-- Ejercicio 1: Operaciones Básicas -->
+            <div class="exercise" id="exercise1" style="display: none;">
+                <div class="exercise-header">
+                    <h2>Ejercicio 1: Operaciones Básicas</h2>
+                    <p class="exercise-instruction">
+                        Ingresa dos números y observa cómo se calculan automáticamente las cuatro operaciones básicas: suma, resta, multiplicación y división.
+                    </p>
+                </div>
+
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="num1">Primer número:</label>
+                        <input type="number" id="num1" placeholder="Ej: 10" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label for="num2">Segundo número:</label>
+                        <input type="number" id="num2" placeholder="Ej: 5" step="any">
+                    </div>
+                    <button class="calculate-btn" onclick="calculateOperations()">Calcular Operaciones</button>
+                </div>
+
+                <div class="results-section" id="results1" style="display: none;">
+                    <h3>Resultados:</h3>
+                    <div class="result-grid">
+                        <div class="result-card suma">
+                            <h4>➕ Suma</h4>
+                            <div class="operation-display">
+                                <span id="sumFormula"></span>
+                            </div>
+                            <div class="result-value" id="sumResult"></div>
+                        </div>
+                        <div class="result-card resta">
+                            <h4>➖ Resta</h4>
+                            <div class="operation-display">
+                                <span id="subFormula"></span>
+                            </div>
+                            <div class="result-value" id="subResult"></div>
+                        </div>
+                        <div class="result-card multiplicacion">
+                            <h4>✖️ Multiplicación</h4>
+                            <div class="operation-display">
+                                <span id="mulFormula"></span>
+                            </div>
+                            <div class="result-value" id="mulResult"></div>
+                        </div>
+                        <div class="result-card division">
+                            <h4>➗ División</h4>
+                            <div class="operation-display">
+                                <span id="divFormula"></span>
+                            </div>
+                            <div class="result-value" id="divResult"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-section">
+                    <h3>Código JavaScript:</h3>
+                    <pre class="code-block"><code id="codeDisplay">// Ingresa los números para ver el código aquí</code></pre>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2: Cálculo de Velocidad -->
+            <div class="exercise" id="exercise2" style="display: none;">
+                <div class="exercise-header">
+                    <h2>Ejercicio 2: Cálculo de Velocidad</h2>
+                    <p class="exercise-instruction">
+                        Ingresa la distancia recorrida (en kilómetros) y el tiempo empleado (en horas) para calcular la velocidad del auto usando la fórmula: <strong>V = D / T</strong>
+                    </p>
+                </div>
+
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="distancia">Distancia recorrida (km):</label>
+                        <input type="number" id="distancia" placeholder="Ej: 120" step="any" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="tiempo">Tiempo empleado (horas):</label>
+                        <input type="number" id="tiempo" placeholder="Ej: 2" step="any" min="0.01">
+                    </div>
+                    <button class="calculate-btn" onclick="calculateVelocity()">Calcular Velocidad</button>
+                </div>
+
+                <div class="results-section" id="results2" style="display: none;">
+                    <h3>Resultado:</h3>
+                    <div class="velocity-result">
+                        <div class="formula-display">
+                            <h4>🏎️ Fórmula de Velocidad</h4>
+                            <div class="formula-content">
+                                <span class="formula-text">V = D / T</span>
+                                <span class="formula-explanation" id="formulaExplanation">V = ? / ?</span>
+                            </div>
+                        </div>
+                        <div class="velocity-card">
+                            <h4>🚗 Velocidad Calculada</h4>
+                            <div class="velocity-value" id="velocityResult">0</div>
+                            <span class="velocity-unit">km/h</span>
+                        </div>
+                        <div class="interpretation" id="velocityInterpretation" style="display: none;">
+                            <h4>📊 Interpretación</h4>
+                            <p id="interpretationText"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-section">
+                    <h3>Código JavaScript:</h3>
+                    <pre class="code-block"><code id="codeDisplay2">// Ingresa la distancia y el tiempo para ver el código aquí</code></pre>
+                </div>
+            </div>
+
+            <!-- Ejercicio 3: Comisiones de Vendedor -->
+            <div class="exercise" id="exercise3" style="display: none;">
+                <div class="exercise-header">
+                    <h2>Ejercicio 3: Comisiones de Vendedor</h2>
+                    <p class="exercise-instruction">
+                        Ingresa el sueldo base del vendedor y el valor de sus tres ventas del mes. El sistema calculará automáticamente las comisiones (10% por cada venta) y el total a recibir.
+                    </p>
+                </div>
+
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="sueldoBase">Sueldo base mensual ($):</label>
+                        <input type="number" id="sueldoBase" placeholder="Ej: 1500" step="any" min="0">
+                    </div>
+                    <div class="sales-inputs">
+                        <h4>💰 Ventas del mes:</h4>
+                        <div class="input-group">
+                            <label for="venta1">Primera venta ($):</label>
+                            <input type="number" id="venta1" placeholder="Ej: 2000" step="any" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="venta2">Segunda venta ($):</label>
+                            <input type="number" id="venta2" placeholder="Ej: 1500" step="any" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="venta3">Tercera venta ($):</label>
+                            <input type="number" id="venta3" placeholder="Ej: 3000" step="any" min="0">
+                        </div>
+                    </div>
+                    <button class="calculate-btn" onclick="calculateCommissions()">Calcular Comisiones</button>
+                </div>
+
+                <div class="results-section" id="results3" style="display: none;">
+                    <h3>Resultados del mes:</h3>
+                    <div class="commission-results">
+                        <div class="sales-summary">
+                            <h4>📊 Resumen de Ventas</h4>
+                            <div class="sales-breakdown">
+                                <div class="sale-item">
+                                    <span class="sale-label">Venta 1:</span>
+                                    <span class="sale-value" id="ventaDisplay1">$0</span>
+                                    <span class="commission-value" id="comision1">Comisión: $0</span>
+                                </div>
+                                <div class="sale-item">
+                                    <span class="sale-label">Venta 2:</span>
+                                    <span class="sale-value" id="ventaDisplay2">$0</span>
+                                    <span class="commission-value" id="comision2">Comisión: $0</span>
+                                </div>
+                                <div class="sale-item">
+                                    <span class="sale-label">Venta 3:</span>
+                                    <span class="sale-value" id="ventaDisplay3">$0</span>
+                                    <span class="commission-value" id="comision3">Comisión: $0</span>
+                                </div>
+                            </div>
+                            <div class="total-sales">
+                                <span class="total-label">Total ventas:</span>
+                                <span class="total-value" id="totalVentas">$0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="salary-breakdown">
+                            <h4>💼 Desglose Salarial</h4>
+                            <div class="salary-item">
+                                <span class="salary-label">Sueldo base:</span>
+                                <span class="salary-value" id="sueldoDisplay">$0</span>
+                            </div>
+                            <div class="salary-item">
+                                <span class="salary-label">Total comisiones:</span>
+                                <span class="salary-value" id="totalComisiones">$0</span>
+                            </div>
+                            <div class="salary-item total-salary">
+                                <span class="salary-label">Total a recibir:</span>
+                                <span class="salary-value" id="totalRecibir">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-section">
+                    <h3>Código JavaScript:</h3>
+                    <pre class="code-block"><code id="codeDisplay3">// Ingresa el sueldo base y las ventas para ver el código aquí</code></pre>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
