@@ -256,21 +256,24 @@ function calculateCommissions() {
     // Aqui inicia el codigo para el ejercicio 3
 
     // Declara las constantes necesarias para el ejercicio 3 de acuerdo a los outputs
-    // Calcular comisiones usando solo operadores aritméticos (10% = 0.1)
-    //Usa estas constantes para calcular las comisiones de acuerdo a los outputs
-    const comision1 = 0; //Esta es la constante inicializda para la primera comision
-    const comision2 = 0; //Esta es la constante inicializada para la segunda comision
-    const comision3 = 0; //Esta es la constante inicializada para la tercera comision
+    let comision1 = 0;
+    let comision2 = 0;
+    let comision3 = 0;
 
-    //Realiza las operaciones necesarias para calcular las comisiones de acuerdo a los outputs
+    // Calcular comisiones usando solo operadores aritméticos (10% = 0.1)
+    comision1 = venta1 * 0.10;
+    comision2 = venta2 * 0.10;
+    comision3 = venta3 * 0.10;
 
     // Calcular totales usando solo operadores aritméticos
-    const totalVentas = 0; //Esta es la constante inicializada para el total de ventas
-    const totalComisiones = 0; //Esta es la constante inicializada para el total de comisiones
-    const totalRecibir = 0; //Esta es la constante inicializada para el total a recibir
+    let totalVentas = 0; //Esta es la constante inicializada para el total de ventas
+    let totalComisiones = 0; //Esta es la constante inicializada para el total de comisiones
+    let totalRecibir = 0; //Esta es la constante inicializada para el total a recibir
 
-    //Realiza las operaciones necesarias para calcular las comisiones y los totales de acuerdo a los outputs
-
+    //Realiza las operaciones necesarias para calcular las comisiones y los totales de acuerdo a los outlet 
+    totalVentas = venta1 + venta2 + venta3;
+    totalComisiones = comision1 + comision2 + comision3;
+    totalRecibir = sueldoBase + totalComisiones;
     // Aqui termina el codigo para el ejercicio 3
 
     // Mostrar los valores de las ventas
