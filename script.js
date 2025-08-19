@@ -163,6 +163,7 @@ function calculateVelocity() {
 
     //Declara las constantes necesarias para el ejercicio 2 de acuerdo a los outputs
 
+    const velocidad = distancia / tiempo;
 
     //Aqui termina el codigo para el ejercicio 2
 
